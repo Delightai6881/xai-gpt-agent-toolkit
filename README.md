@@ -194,3 +194,4 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - The team behind Xircuits.  Give the project a star if it looks interesting!
 - The developers of [BabyAGI](https://github.com/yoheinakajima/babyagi) and [AutoGPT](https://github.com/Torantulino/Auto-GPT) for their groundbreaking work on large language model-based agents
 @Kolya1993_12 @demiurgich @AndroidDev  https://x.com/DelightAi6881/status/1721038681425744299/?s=-xai/gpt
+http://qiskit.org

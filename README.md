@@ -195,3 +195,8 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - The developers of [BabyAGI](https://github.com/yoheinakajima/babyagi) and [AutoGPT](https://github.com/Torantulino/Auto-GPT) for their groundbreaking work on large language model-based agents
 @Kolya1993_12 @demiurgich @AndroidDev  https://x.com/DelightAi6881/status/1721038681425744299/?s=-xai/gpt
 http://qiskit.org
+Докладніше:
+
+1. help.ea.com
+2. github.com
+3. twitter.com https://x.com/DelightAi6881/status/1721661866965885229?s=20 https://x.com/DelightAi6881/status/1720926200938328329?s=https://twitter.com/i/DelightAi6881/spaces/1PlKQDwDWkDxE?s=twitter.com/home

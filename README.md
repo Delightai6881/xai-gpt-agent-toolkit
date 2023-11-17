@@ -212,3 +212,107 @@ import anylogicpy as alp
 # Використовуємо онлайн-сервіс draw.io для генерації діаграми
 # Зберігаємо діаграму як XML-файл і отримуємо посилання на неї
 uml_diagram_url = "https://app.diagrams.net/#G1Z8Q9wL2n0a6QyZ0Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9Q0z9
+# Імпортуємо необхідні бібліотеки
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import tensorflow as tf
+from sklearn.preprocessing import MinMaxScaler
+
+# Завантажуємо дані про ціни криптовалют з CoinMarketCap
+# Ви можете змінити назви криптовалют, які вас цікавлять
+# Ми використовуємо дані за останні 30 днів
+url = "https://coinmarketcap.com/currencies/{}/historical-data/?start=20231001&end=20231101"
+currencies = ["bitcoin", "ethereum", "trust-wallet-token"]
+data = {}
+for currency in currencies:
+  data[currency] = pd.read_csv(url.format(currency))
+
+# Переглядаємо дані для TWT
+data["trust-wallet-token"].head()
+
+# Вибираємо колонку Close для кожної криптовалюти
+# Це є ціною, за якою криптовалюта закривалася в кінці дня
+close_data = pd.DataFrame()
+for currency in currencies:
+  close_data[currency] = data[currency]["Close"]
+
+# Нормалізуємо дані, щоб вони були в діапазоні від 0 до 1
+# Це допомагає моделі навчатися краще
+scaler = MinMaxScaler()
+scaled_data = scaler.fit_transform(close_data)
+scaled_data = pd.DataFrame(scaled_data, columns=currencies)
+
+# Візуалізуємо дані на графіку
+plt.figure(figsize=(12, 8))
+plt.plot(scaled_data)
+plt.legend(currencies)
+plt.title("Нормалізовані ціни криптовалют за останні 30 днів")
+plt.xlabel("Дні")
+plt.ylabel("Ціни")
+plt.show()
+
+# Створюємо тренувальні та тестові дані
+# Ми використовуємо 80% даних для тренування та 20% для тестування
+# Ми також використовуємо віконну функцію, щоб створити послідовності даних
+# Кожна послідовність має довжину 10 днів та передбачає ціну на 11-й день
+window_size = 10
+train_size = int(len(scaled_data) * 0.8)
+test_size = len(scaled_data) - train_size
+train_data = scaled_data.iloc[:train_size]
+test_data = scaled_data.iloc[train_size:]
+
+def create_sequences(data, window_size):
+  x = []
+  y = []
+  for i in range(window_size, len(data)):
+    x.append(data.iloc[i-window_size:i])
+    y.append(data.iloc[i])
+  return np.array(x), np.array(y)
+
+x_train, y_train = create_sequences(train_data, window_size)
+x_test, y_test = create_sequences(test_data, window_size)
+
+# Перевіряємо розміри даних
+print(x_train.shape, y_train.shape)
+print(x_test.shape, y_test.shape)
+
+# Створюємо модель штучної нейронної мережі з використанням TensorFlow
+# Ми використовуємо три шари LSTM для вивчення часових залежностей
+# Ми також використовуємо шар Dropout для запобігання перенавчанню
+# Ми використовуємо шар Dense для виведення передбачень для кожної криптовалюти
+model = tf.keras.models.Sequential([
+  tf.keras.layers.LSTM(64, return_sequences=True, input_shape=(window_size, len(currencies))),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.LSTM(64, return_sequences=True),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.LSTM(64),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.Dense(len(currencies))
+])
+
+# Компілюємо модель з використанням оптимізатора Adam та функції втрат MSE
+model.compile(optimizer="adam", loss="mean_squared_error")
+
+# Навчаємо модель на тренувальних даних з використанням 50 епох
+model.fit(x_train, y_train, epochs=50, batch_size=32, verbose=1)
+
+# Оцінюємо модель на тестових даних
+model.evaluate(x_test, y_test)
+
+# Робимо передбачення на тестових даних
+y_pred = model.predict(x_test)
+
+# Обертаємо нормалізацію, щоб отримати реальні ціни
+y_pred = scaler.inverse_transform(y_pred)
+y_test = scaler.inverse_transform(y_test)
+
+# Візуалізуємо реальні та передбачені ціни на графіку
+plt.figure(figsize=(12, 8))
+plt.plot(y_test[:, 2], label="Реальна ціна TWT")
+plt.plot(y_pred[:, 2], label="Передбачена ціна TWT")
+plt.legend()
+plt.title("Реальна та передбачена ціна Trust Wallet Token за останні 6 днів")
+plt.xlabel("Дні")
+plt.ylabel("Ціни")
+plt.show()
